@@ -1,3 +1,5 @@
+![OptiFeed Logo](https://fishfeed.retool.com/api/file/0800ef5b-2dd5-4e45-85de-4c79042814d6)
+
 # OptiFeed - Fish Feed Prediction API
 
 ## Project Overview
