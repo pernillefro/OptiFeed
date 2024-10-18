@@ -82,4 +82,4 @@ Here's an example of the sensor data format to be sent in JSON format to the `/p
 
 
 ## License
-This project is open-source under the MIT License.
+This project is open-source under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0).
