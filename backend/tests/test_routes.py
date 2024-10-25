@@ -1,15 +1,20 @@
+# tests/test_routes.py
+
 import unittest
 from app import create_app
 
 class TestRoutes(unittest.TestCase):
     def setUp(self):
-        self.app = create_app().test_client()
-        self.app.testing = True
+        app = create_app()
+        app.testing = True
+        self.client = app.test_client()
 
     def test_health_check(self):
-        response = self.app.get("/health")
+        response = self.client.get("/api/health")
         self.assertEqual(response.status_code, 200)
-        self.assertIn("UP", response.get_json()["status"])
+        data = response.get_json()
+        self.assertIn("status", data)
+        self.assertEqual(data["status"], "UP")
 
     def test_predict(self):
         sensor_data = {
@@ -23,12 +28,19 @@ class TestRoutes(unittest.TestCase):
             "fish_speed_m_s": 0.2,
             "fish_health": 1
         }
-        response = self.app.post("/predict", json=sensor_data)
+        response = self.client.post("/api/predict", json=sensor_data)
         self.assertEqual(response.status_code, 200)
+        data = response.get_json()
+        self.assertIn("prediction", data)
+        self.assertIsInstance(data["prediction"], (int, float))
+        self.assertGreaterEqual(data["prediction"], 0)
 
     def test_retrain(self):
-        response = self.app.post("/retrain")
+        response = self.client.post("/api/retrain")
         self.assertEqual(response.status_code, 200)
+        data = response.get_json()
+        self.assertIn("status", data)
+        self.assertEqual(data["status"], "Model retrained successfully")
 
 if __name__ == "__main__":
     unittest.main()

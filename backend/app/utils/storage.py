@@ -2,7 +2,7 @@ import os
 import logging
 import ibm_boto3
 from ibm_botocore.client import Config as IBMConfig
-from app.config import Config
+from app.utils.config import Config
 
 # IBM COS client setup
 cos_client = ibm_boto3.client(
