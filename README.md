@@ -4,7 +4,7 @@
 
 ## Project Overview
 
-**OptiFeed** is a Flask-based API designed to predict the optimal amount of feed required for fish farming based on various environmental and fish-specific sensor data. The project uses a machine learning model (RandomForestRegressor) to analyze the sensor data and provide predictions. The API also includes functionality to retrain the model periodically based on new sensor inputs.
+**OptiFeed** is a Flask-based API designed to predict the optimal amount of feed required for fish farming based on various environmental and fish-specific sensor data. The project supports model training and utilisation using IBM Machine Learning or Watson Studio, offering flexibility. Additionally, the API includes functionality to periodically retrain the model with updated sensor data, ensuring predictions remain accurate over time.
 
 This MVP uses **Retool** to handle the API front-end interface, making it easy to visualize, monitor, and interact with the model predictions and sensor data.
 
@@ -40,7 +40,9 @@ Install the required dependencies and run the app:
 
 ```bash
 pip install -r requirements.txt
-python main.py
+source .venv/bin/activate
+cd backend
+python -m app.main
 ```
 
 The application will be available at `http://localhost:5000`.
