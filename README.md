@@ -77,7 +77,7 @@ Here's an example of the sensor data format to be sent in JSON format to the `/p
 ## Future Improvements
 - Integrating a persistent database for sensor data storage (e.g., Cloudant or PostgreSQL).
 - Enhanced security with authentication and rate limiting.
-- Integrate IBM Watson Machine Learning for cloud-based model management.
+- Improve integration to IBM Watson Machine Learning for cloud-based model management.
 - Scale up using IBM Functions or IBM Cloud Kubernetes Service.
 
 
